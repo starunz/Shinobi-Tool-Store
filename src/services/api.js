@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const base = 'http://localhost:5000';
+const api = axios.create( {baseURL:'http://localhost:5000'})
 
 const config = (token) => {
     return {
@@ -10,8 +10,12 @@ const config = (token) => {
     }
 }
 
-const api = {
+const signUp = (body) => {
+    const promisse = api.post('/sign-up', body)
 
+    return promisse;
 }
 
-export default api;
+export {
+    signUp,
+}

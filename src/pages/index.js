@@ -1,1 +1,3 @@
-//importar os componentes aqui
+import SignUp from "./signUp/SignUp";
+
+export { SignUp, }
