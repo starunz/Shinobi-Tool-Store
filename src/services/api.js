@@ -16,6 +16,13 @@ const signUp = (body) => {
     return promisse;
 }
 
+const login = (body) => {
+    const promisse = api.post('/login', body)
+
+    return promisse;
+}
+
 export {
     signUp,
+    login,
 }
