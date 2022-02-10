@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = axios.create( {baseURL:'http://localhost:5000'})
+const api = axios.create({ baseURL: 'http://localhost:5000' })
 
 const config = (token) => {
     return {
@@ -16,6 +16,13 @@ const signUp = (body) => {
     return promisse;
 }
 
+const getProducts = () => {
+    const promise = api.get('/');
+
+    return promise;
+}
+
 export {
     signUp,
+    getProducts
 }
