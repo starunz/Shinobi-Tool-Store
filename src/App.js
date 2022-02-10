@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { SignUp, Login, } from "./pages";
+import { SignUp, Login, Home } from "./pages";
 
 import { AuthProvider } from "./contexts/AuthContext";
 
@@ -11,6 +11,7 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={< Login />} />
                     <Route path='/sign-up' element={< SignUp />} />
+                    <Route path='/' element={< Home />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider> 
