@@ -16,6 +16,12 @@ const signUp = (body) => {
     return promisse;
 }
 
+const login = (body) => {
+    const promisse = api.post('/login', body)
+
+    return promisse;
+}
+
 const getProducts = () => {
     const promise = api.get('/');
 
@@ -24,5 +30,6 @@ const getProducts = () => {
 
 export {
     signUp,
-    getProducts
+    login,
+    getProducts,
 }
