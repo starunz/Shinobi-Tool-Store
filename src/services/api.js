@@ -10,8 +10,13 @@ const config = (token) => {
     }
 }
 
-const api = {
+function getProducts() {
+    const promise = axios.get(`${base}/`);
+    return promise;
+}
 
+const api = {
+    getProducts
 }
 
 export default api;

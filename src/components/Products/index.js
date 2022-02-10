@@ -1,7 +1,7 @@
 import { Product, Informations, ProductData, Button } from './style';
 import { CashOutline } from 'react-ionicons';
 
-export default function Products() {
+export default function Products({ name, price, quantity, category }) {
     return (
         <>
             <Product>
@@ -10,9 +10,9 @@ export default function Products() {
                 </div>
                 <Informations>
                     <ProductData>
-                        <h2>Kunai23</h2>
-                        <p>R$ 20,00</p>
-                        <span>Disponíveis: 50</span>
+                        <h2>{name}</h2>
+                        <p>R$ {price}</p>
+                        <span>Disponíveis: {quantity}</span>
                     </ProductData>
                 </Informations>
                 <Button>
