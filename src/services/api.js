@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const base = 'http://localhost:5000';
+const api = axios.create({ baseURL: 'http://localhost:5000' })
 
 const config = (token) => {
     return {
@@ -10,13 +10,19 @@ const config = (token) => {
     }
 }
 
-function getProducts() {
-    const promise = axios.get(`${base}/`);
+const signUp = (body) => {
+    const promisse = api.post('/sign-up', body)
+
+    return promisse;
+}
+
+const getProducts = () => {
+    const promise = api.get('/');
+
     return promise;
 }
 
-const api = {
+export {
+    signUp,
     getProducts
 }
-
-export default api;
