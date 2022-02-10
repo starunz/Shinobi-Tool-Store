@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { SignUp } from "./pages";
+
 const App = () => {
     return (
-        //aqui em baixo fica o contexto criado...
-        <Provider>
+        
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<> </>} />
+                    <Route path='/sign-up' element={< SignUp />} />
                 </Routes>
             </BrowserRouter>
-        </Provider>
+       
     );
 }
 
