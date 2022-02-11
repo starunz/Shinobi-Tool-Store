@@ -12,7 +12,7 @@ const App = () => {
                     <Route path='/login' element={< Login />} />
                     <Route path='/sign-up' element={< SignUp />} />
                     <Route path='/' element={< Home />} />
-                    <Route path='/product' element={< Product />} />
+                    <Route path='/product/:productId' element={< Product />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

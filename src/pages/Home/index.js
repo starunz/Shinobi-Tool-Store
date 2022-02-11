@@ -25,7 +25,7 @@ export default function Home() {
             <Container>
                 <Header />
                 <ProductsTitle>Nossos produtos: </ProductsTitle>
-                {apiProducts.map((product) => (console.log(product),
+                {apiProducts.map((product) => (
                     <Products key={product._id} id={product._id} name={product.name} price={product.price} quantity={product.quantity} category={product.category}></Products>
                 ))}
 

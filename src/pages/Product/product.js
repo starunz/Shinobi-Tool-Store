@@ -7,12 +7,47 @@ import {
 }
     from "./style";
 import { CheckmarkCircle, CloseCircle } from 'react-ionicons'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import cart from '../../assets/images/cart.png';
+import { useParams } from "react-router-dom";
+import * as api from '../../services/api';
 
 export default function Product() {
 
+    const { productId } = useParams();
     const [unavailable, setUnavailable] = useState(false);
+    const [apiProduct, setApiProduct] = useState();
+    const [category, setCategory] = useState('');
+    let cat = '';
+
+    useEffect(() => {
+        const promise = api.getProduct(productId);
+
+        promise.then((response) => {
+
+            setApiProduct(response.data);
+
+            for (let i = 0; i < response.data[0].category.length; i++) {
+                if (i === response.data[0].category.length - 1) {
+                    cat += response.data[0].category[i].distância;
+                } else {
+                    cat += response.data[0].category[i].distância + ', ';
+                }
+            }
+            setCategory(cat);
+
+            if (response.data[0].quantity === 0) {
+                setUnavailable(true);
+            }
+
+        }).catch(() => {
+            alert('Algo deu errado. Tente Novamente.')
+        })
+    }, []);
+
+    if (!apiProduct) {
+        return <h1>Carregando</h1>
+    }
 
     return (
         <>
@@ -48,10 +83,10 @@ export default function Product() {
                             }
                         </DataHeader>
 
-                        <ProductName>Kunai</ProductName>
-                        <ProductCategory>Categoria: longa distância</ProductCategory>
-                        <ProductDescription>Uma espécie de Adaga negra com o objetivo de pressionar e esfaquear, pode também causar danos ao ser lançada, apesar de não ser esse o seu objetivo.</ProductDescription>
-                        <ProductQuantity>{!unavailable ? `Disponível: 50` : 'Aguarde nosso Chunnin retornar com novas unidades deste item.'}</ProductQuantity>
+                        <ProductName>{apiProduct[0].name}</ProductName>
+                        <ProductCategory>Categoria: {category}</ProductCategory>
+                        <ProductDescription>{apiProduct[0].description}</ProductDescription>
+                        <ProductQuantity>{!unavailable ? `Disponível: ${apiProduct[0].quantity}` : 'Aguarde nosso Chunnin retornar com novas unidades deste item.'}</ProductQuantity>
 
                     </ProductData>
 
