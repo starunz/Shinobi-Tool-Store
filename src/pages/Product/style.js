@@ -48,6 +48,12 @@ const ProductData = styled.div`
     height: auto;
     margin-bottom: 35px;
 
+    .numbers{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
 `
 
 const DataHeader = styled.div`
@@ -117,7 +123,7 @@ const AddCart = styled.button`
     padding: 20px;
 
     border-radius: 25px;
-    background-color: orangered;
+    background-color: #E6814A;
 
     font-size: 17px;
     color: #fff;
@@ -133,6 +139,37 @@ const AddCart = styled.button`
 
 `
 
+const ProductPrice = styled.div`
+
+    margin-top: 5px;
+    text-align: right;
+    font-size: 28px;
+
+    color: #E6814A;
+
+    font-weight: 600;
+
+`
+
+const ReturnButton = styled.button`
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80%;
+    height: 40px;
+    margin-top: 5px;
+    padding: 20px;
+
+    border-radius: 25px;
+    background: none;
+
+    font-size: 14px;
+    color: #1C1C1C;
+
+`
+
 export {
     Container,
     ProductContent,
@@ -145,4 +182,6 @@ export {
     ProductQuantity,
     AddCart,
     ProductFooter,
+    ProductPrice,
+    ReturnButton
 }

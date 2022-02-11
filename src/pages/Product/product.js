@@ -3,13 +3,14 @@ import {
     Container, ProductContent, ProductImage,
     ProductData, DataHeader, ProductName,
     ProductDescription, ProductQuantity,
-    AddCart, ProductFooter, ProductCategory
+    AddCart, ProductFooter, ProductCategory,
+    ProductPrice, ReturnButton
 }
     from "./style";
 import { CheckmarkCircle, CloseCircle } from 'react-ionicons'
 import { useEffect, useState } from "react";
 import cart from '../../assets/images/cart.png';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as api from '../../services/api';
 
 export default function Product() {
@@ -18,6 +19,7 @@ export default function Product() {
     const [unavailable, setUnavailable] = useState(false);
     const [apiProduct, setApiProduct] = useState();
     const [category, setCategory] = useState('');
+    const navigate = useNavigate();
     let cat = '';
 
     useEffect(() => {
@@ -86,8 +88,10 @@ export default function Product() {
                         <ProductName>{apiProduct[0].name}</ProductName>
                         <ProductCategory>Categoria: {category}</ProductCategory>
                         <ProductDescription>{apiProduct[0].description}</ProductDescription>
-                        <ProductQuantity>{!unavailable ? `Disponível: ${apiProduct[0].quantity}` : 'Aguarde nosso Chunnin retornar com novas unidades deste item.'}</ProductQuantity>
-
+                        <div className="numbers">
+                            <ProductQuantity>{!unavailable ? `Disponível: ${apiProduct[0].quantity}` : 'Aguarde nosso Chunnin retornar com novas unidades deste item.'}</ProductQuantity>
+                            <ProductPrice>{!unavailable ? `$ ${apiProduct[0].price}` : null}</ProductPrice>
+                        </div>
                     </ProductData>
 
                     <ProductFooter>
@@ -95,6 +99,7 @@ export default function Product() {
                             <p>Adicionar ao carrinho</p>
                             <img src={cart} alt="" />
                         </AddCart>
+                        <ReturnButton onClick={() => navigate(-1)}>Voltar para loja</ReturnButton>
                     </ProductFooter>
 
                 </ProductContent>
