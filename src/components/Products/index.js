@@ -1,10 +1,12 @@
 import { Product, Informations, ProductData, Button } from './style';
 import { CashOutline } from 'react-ionicons';
+import * as api from '../../services/api';
 
-export default function Products({ name, price, quantity, category }) {
+export default function Products({ id, name, price, quantity, category }) {
+
     return (
         <>
-            <Product>
+            <Product >
                 <div className="image">
                     <img src='https://img.joomcdn.net/19aa34e749cab8a3c251114385d098c3ac86b8ba_original.jpeg' alt='' />
                 </div>
