@@ -12,17 +12,21 @@ import { useEffect, useState } from "react";
 import cart from '../../assets/images/cart.png';
 import { useNavigate, useParams } from "react-router-dom";
 import * as api from '../../services/api';
+import useAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 export default function Product() {
 
     const { productId } = useParams();
+    const { auth } = useAuth();
     const [unavailable, setUnavailable] = useState(false);
     const [apiProduct, setApiProduct] = useState();
     const [category, setCategory] = useState('');
     const navigate = useNavigate();
     let cat = '';
 
-    useEffect(() => {
+    function loadProduct() {
+
         const promise = api.getProduct(productId);
 
         promise.then((response) => {
@@ -45,7 +49,31 @@ export default function Product() {
         }).catch(() => {
             alert('Algo deu errado. Tente Novamente.')
         })
-    }, []);
+    }
+
+    useEffect(loadProduct, []);
+
+    function handleAddToCart() {
+        if (auth && auth.token) {
+            navigate('/cart');
+        } else {
+            Swal.fire({
+                title: 'OPS!',
+                text: "Você precisa estar logado para continuar.",
+                imageUrl: 'https://res.cloudinary.com/dzdgpwtox/image/upload/w_450,c_scale/v1612287799/designer-tool-uploads/bucket_4155/1612287796191.png',
+                imageHeight: 200,
+                showCancelButton: true,
+                confirmButtonColor: '#E6814A',
+                cancelButtonColor: '#b8b8b8',
+                confirmButtonText: 'Logar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login');
+                }
+            })
+        }
+    }
 
     if (!apiProduct) {
         return <h1>Carregando</h1>
@@ -95,7 +123,7 @@ export default function Product() {
                     </ProductData>
 
                     <ProductFooter>
-                        <AddCart disabled={unavailable}>
+                        <AddCart disabled={unavailable} onClick={handleAddToCart}>
                             <p>Adicionar ao carrinho</p>
                             <img src={cart} alt="" />
                         </AddCart>
