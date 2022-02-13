@@ -6,8 +6,8 @@ import {
     AddCart, ProductFooter, ProductCategory,
     ProductPrice, ReturnButton
 }
-    from "./style";
-import { CheckmarkCircle, CloseCircle } from 'react-ionicons'
+from "./style";
+import { IoCheckmarkCircle, IoCloseCircle} from 'react-icons/io5'
 import { useEffect, useState } from "react";
 import cart from '../../assets/images/cart.png';
 import { useNavigate, useParams } from "react-router-dom";
@@ -92,20 +92,19 @@ export default function Product() {
                     <ProductData>
                         <DataHeader unavailable={unavailable}>
                             {!unavailable ?
-                                <CheckmarkCircle
-                                    color={'green'}
-                                    title={'check'}
-                                    height="15px"
-                                    width="15px"
-                                />
-                                :
-                                <CloseCircle
-                                    color={'red'}
-                                    title={'check'}
-                                    height="15px"
-                                    width="15px"
-                                />
-
+                            <IoCheckmarkCircle
+                                color={'green'}
+                                title={'check'}
+                                height="15px"
+                                width="15px"
+                            />
+                            :
+                            <IoCloseCircle
+                                color={'red'}
+                                title={'check'}
+                                height="15px"
+                                width="15px"
+                            />
                             }
                             {!unavailable ?
                                 <p>Produto Disponível</p> :

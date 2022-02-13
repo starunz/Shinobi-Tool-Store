@@ -47,7 +47,7 @@ const SignUp = () => {
       await api.signUp({ ...signUpData });
 
       setIsLoading(false);
-      navigate('/');
+      navigate('/login');
     } catch (error) {
       setIsLoading(false);
 

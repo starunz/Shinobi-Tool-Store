@@ -19,7 +19,7 @@ const Login = () => {
 
     useEffect(() => {
         if (auth && auth.token) {
-        navigate("/wallet");
+        navigate('/');
         }
     }, []);
 
@@ -37,7 +37,7 @@ const Login = () => {
             setIsLoading(false);
     
             login(promisse.data);
-            navigate('/ue');
+            navigate('/');
         }
         catch (error) {
            setIsLoading(false);
