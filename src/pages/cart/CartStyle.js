@@ -74,7 +74,7 @@ const Quantity = styled.p`
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     font-size: 18px;
 
@@ -146,6 +146,13 @@ const ShopButton = styled.button`
 
 `
 
+const DeleteButton = styled.button`
+
+    background: none;
+    text-align: center;
+
+`
+
 export {
     Container,
     Content,
@@ -159,4 +166,5 @@ export {
     Buttons,
     ConfirmButton,
     ShopButton,
+    DeleteButton
 }

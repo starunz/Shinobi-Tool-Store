@@ -3,9 +3,10 @@ import {
     Container, Content, ProductCart,
     Data, Quantity, QuantityButton,
     Number, Price, Total,
-    ConfirmButton, Buttons, ShopButton
+    ConfirmButton, Buttons, ShopButton, DeleteButton
 } from "./CartStyle";
 import { AiFillDownCircle, AiFillUpCircle } from 'react-icons/ai';
+import { GrClose } from 'react-icons/gr';
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import * as api from '../../services/api';
@@ -63,6 +64,34 @@ export default function Cart() {
             })
     }
 
+    function handleDelete(id, qty) {
+
+        Swal.fire({
+            text: "Deseja deletar este item do seu carrinho?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#E6814A',
+            cancelButtonColor: '#b8b8b8',
+            confirmButtonText: 'Deletar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const promise = api.deleteItem(id, qty, auth.token);
+
+                promise.then(setLever(!lever))
+                    .catch(() => {
+                        Swal.fire({
+                            imageUrl: `${pain}`,
+                            imageHeight: 140,
+                            title: "OOPS...",
+                            text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
+                        });
+                    })
+            }
+        })
+
+    }
+
     useEffect(loadCart, [lever])
 
     return (
@@ -95,6 +124,8 @@ export default function Cart() {
                                         size={20}
                                     />
                                 </QuantityButton>
+
+                                <DeleteButton onClick={() => handleDelete(cartProduct.productId, cartProduct.quantity)}> <GrClose size={15}></GrClose> </DeleteButton>
                             </Quantity>
                         </ProductCart>
                     ))}

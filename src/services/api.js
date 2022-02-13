@@ -42,8 +42,8 @@ const sendToCart = (body, token, productId) => {
 }
 
 const getUserCart = (token) => {
-    const userConfig = config(token)
-    const promise = api.get('/cart', userConfig)
+    const configAuth = config(token)
+    const promise = api.get('/cart', configAuth)
 
     return promise;
 }
@@ -55,6 +55,13 @@ const updateCart = (id, qty, change, token) => {
     return promise;
 }
 
+const deleteItem = (id, qty, token) => {
+    const configAuth = config(token)
+    const promise = api.post(`/cart/${id}`, { quantity: qty }, configAuth)
+
+    return promise;
+}
+
 export {
     signUp,
     login,
@@ -62,5 +69,6 @@ export {
     getProduct,
     sendToCart,
     getUserCart,
-    updateCart
+    updateCart,
+    deleteItem
 }
