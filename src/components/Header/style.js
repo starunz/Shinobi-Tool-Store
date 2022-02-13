@@ -37,17 +37,8 @@ const Menu = styled.div`
 
 `
 
-const Separator = styled.div`
-
-    width: 1px;
-    height: 40px;
-    background-color: #000;
-
-`
-
 export {
     Container,
     ShinobiStore,
-    Separator,
     Menu
 }

@@ -5,11 +5,13 @@ import {
     Number, Price, Total,
     ConfirmButton, Buttons, ShopButton
 } from "./CartStyle";
-import { ChevronUpCircleSharp, ChevronDownCircleSharp } from 'react-ionicons'
+import { AiFillDownCircle, AiFillUpCircle } from 'react-icons/ai';
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import * as api from '../../services/api';
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import pain from '../../assets/images/pain.png'
 
 export default function Cart() {
 
@@ -31,18 +33,33 @@ export default function Cart() {
                 sum += price;
             }
             setTotalAmount(sum);
+        }).catch(() => {
+            Swal.fire({
+                imageUrl: `${pain}`,
+                imageHeight: 140,
+                title: "OOPS...",
+                text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
+            });
         })
     }
 
-    function handleChangeQuantity(id, qty) {
+    function handleChangeQuantity(id, qty, change) {
 
         if (qty < 0) {
             return
         }
 
-        const promise = api.updateCart(id, qty, auth.token);
+        const promise = api.updateCart(id, qty, change, auth.token);
 
         promise.then(setLever(!lever))
+            .catch(() => {
+                Swal.fire({
+                    imageUrl: `${pain}`,
+                    imageHeight: 140,
+                    title: "OOPS...",
+                    text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
+                });
+            })
     }
 
     useEffect(loadCart, [lever])
@@ -65,19 +82,16 @@ export default function Cart() {
                             <Quantity>
                                 <QuantityButton
                                 >
-                                    <ChevronDownCircleSharp onClick={() => handleChangeQuantity(cartProduct.productId, cartProduct.quantity - 1)}
+                                    <AiFillDownCircle onClick={() => handleChangeQuantity(cartProduct.productId, cartProduct.quantity - 1, -1)}
                                         color={'#E6814A'}
-                                        title={'minus'}
-                                        height="20px"
-                                        width="20px" />
+                                        size={20}
+                                    />
                                 </QuantityButton>
                                 <Number>{cartProduct.quantity}</Number>
                                 <QuantityButton >
-                                    <ChevronUpCircleSharp onClick={() => handleChangeQuantity(cartProduct.productId, cartProduct.quantity + 1)}
+                                    <AiFillUpCircle onClick={() => handleChangeQuantity(cartProduct.productId, cartProduct.quantity + 1, +1)}
                                         color={'#E6814A'}
-                                        title={'plus'}
-                                        height="20px"
-                                        width="20px"
+                                        size={20}
                                     />
                                 </QuantityButton>
                             </Quantity>
@@ -86,7 +100,7 @@ export default function Cart() {
                     <Total>Total: $ {totalAmount}</Total>
 
                     <Buttons>
-                        <ConfirmButton onClick={() => navigate('/infos')} >Continuar</ConfirmButton>
+                        <ConfirmButton onClick={() => navigate('/infos')} >Avançar</ConfirmButton>
                         <ShopButton onClick={() => navigate('/')}>Continuar comprando</ShopButton>
                     </Buttons>
                 </Content>

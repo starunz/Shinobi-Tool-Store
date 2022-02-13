@@ -48,9 +48,9 @@ const getUserCart = (token) => {
     return promise;
 }
 
-const updateCart = (id, qty, token) => {
+const updateCart = (id, qty, change, token) => {
     const configAuth = config(token)
-    const promise = api.post('/cart', { id, qty }, configAuth)
+    const promise = api.post('/cart', { id, qty, change }, configAuth)
 
     return promise;
 }
