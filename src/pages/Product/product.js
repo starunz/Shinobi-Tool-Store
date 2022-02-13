@@ -9,7 +9,6 @@ import {
     from "./style";
 import { CheckmarkCircle, CloseCircle } from 'react-ionicons'
 import { useEffect, useState } from "react";
-import cart from '../../assets/images/cart.png';
 import { useNavigate, useParams } from "react-router-dom";
 import * as api from '../../services/api';
 import useAuth from '../../hooks/useAuth';
@@ -152,7 +151,6 @@ export default function Product() {
                     <ProductFooter>
                         <AddCart disabled={unavailable} onClick={handleAddToCart}>
                             <p>Adicionar ao carrinho</p>
-                            <img src={cart} alt="" />
                         </AddCart>
                         <ReturnButton onClick={() => navigate(-1)}>Voltar para loja</ReturnButton>
                     </ProductFooter>

@@ -33,13 +33,14 @@ export default function Cart() {
                 sum += price;
             }
             setTotalAmount(sum);
-        }).catch(() => {
-            Swal.fire({
-                imageUrl: `${pain}`,
-                imageHeight: 140,
-                title: "OOPS...",
-                text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
-            });
+        }).catch((error) => {
+            if (error.response.status !== 404)
+                Swal.fire({
+                    imageUrl: `${pain}`,
+                    imageHeight: 140,
+                    title: "OOPS...",
+                    text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
+                });
         })
     }
 

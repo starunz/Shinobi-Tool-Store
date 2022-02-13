@@ -32,7 +32,7 @@ export default function Home() {
             <Container>
                 <Header />
                 <Content>
-                    <ProductsTitle>Nossos produtos: </ProductsTitle>
+                    <ProductsTitle>Produtos: </ProductsTitle>
                     {apiProducts.map((product) => (
                         <Products key={product._id} id={product._id} name={product.name} price={product.price} quantity={product.quantity} category={product.category}></Products>
                     ))}
