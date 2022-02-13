@@ -2,8 +2,9 @@ import styled from "styled-components"
 
 const Product = styled.div`
 
-    width: 90vw;
-    height: auto;
+    //width: 90vw;
+    height: 280px;
+    
     padding: 12px;
     margin-bottom: 20px;
 
@@ -51,12 +52,14 @@ const ProductData = styled.div`
     align-items: center;
 
     h2 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     p {
         font-size: 18px;
         color: green;
+
+        font-weight: bold;
     }
 
     span {

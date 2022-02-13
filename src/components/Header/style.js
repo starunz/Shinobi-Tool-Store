@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-
     width: 100%;
     height: 80px;
     padding: 12px;
@@ -20,25 +19,14 @@ const Container = styled.div`
 
 const ShinobiStore = styled.div`
 
-    font-family: 'Saira Stencil One';
     font-size: 30px;
-    color: #fff;
+    font-family: 'Saira Stencil One', sans-serif;
+    //font-weight: 400;
 
-`
-
-const Menu = styled.div`
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    width: 90px;
-
-
+    color: #ffffff;
 `
 
 export {
     Container,
     ShinobiStore,
-    Menu
 }

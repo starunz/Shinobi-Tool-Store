@@ -1,4 +1,5 @@
 import { Product, Informations, ProductData, Button } from './style';
+import { IoCashOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom';
 
 export default function Products({ id, name, price, quantity, category }) {
@@ -19,9 +20,22 @@ export default function Products({ id, name, price, quantity, category }) {
                     </ProductData>
                 </Informations>
                 <Button>
-                    Visualizar item
+                    Comprar
+                    <IoCashOutline
+                        color={'#00000'}
+                        title={'buy'}
+                        height="25px"
+                        width="25px"
+                    />
                 </Button>
             </Product>
         </>
     )
 }
+
+/*<CashOutline
+color={'#00000'}
+title={'buy'}
+height="25px"
+width="25px"
+/>*/
