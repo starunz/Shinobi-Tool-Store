@@ -15,8 +15,8 @@ const App = () => {
                     <Route path='/support' element={< Support />} />
                     <Route path='/team' element={< Team />} />
                     <Route path='/categorias' element={< Categories />} />
-                    <Route path='/curtadistancia' element={< ShortDistance />} />
-                    <Route path='/longadistancia' element={< LongDistance />} />
+                    <Route path='/categorias/curtadistancia' element={< ShortDistance />} />
+                    <Route path='/categorias/longadistancia' element={< LongDistance />} />
                     <Route path='/product/:productId' element={< Product />} />
                 </Routes>
             </BrowserRouter>

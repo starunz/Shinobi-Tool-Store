@@ -35,10 +35,3 @@ export default function Products({ id, name, price, quantity, category }) {
         </>
     )
 }
-
-/*<CashOutline
-color={'#00000'}
-title={'buy'}
-height="25px"
-width="25px"
-/>*/
