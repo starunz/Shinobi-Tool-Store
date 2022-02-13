@@ -62,6 +62,13 @@ const deleteItem = (id, qty, token) => {
     return promise;
 }
 
+const sendInfos = (token, body) => {
+    const configAuth = config(token)
+    const promise = api.post('/infos', body, configAuth)
+
+    return promise;
+}
+
 export {
     signUp,
     login,
@@ -70,5 +77,6 @@ export {
     sendToCart,
     getUserCart,
     updateCart,
-    deleteItem
+    deleteItem,
+    sendInfos
 }

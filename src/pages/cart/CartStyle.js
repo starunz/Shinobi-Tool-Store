@@ -8,6 +8,7 @@ const Container = styled.div`
     flex-direction: column;
 
     padding-top: 115px;
+    padding-bottom: 50px;
 
 `
 
@@ -27,6 +28,24 @@ const Content = styled.div`
         margin-bottom: 35px;
         font-style: italic;
         font-weight: 600;
+    }
+
+    input {
+        background-color: #ebebeb;
+        box-shadow: 0px 0px 2px rgba(0,0,0,0.7);
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+
+        ::placeholder {
+            font-size: 15px;
+            font-style: italic;
+        }
+    }
+
+    h2 {
+        margin-bottom: 6px;
+        font-size: 18px;
     }
 
 `
@@ -120,7 +139,7 @@ const Buttons = styled.div`
 
 const ConfirmButton = styled.button`
 
-    background-color: #E6814A;
+    background-color: #1C1C1C;
     margin-top: 35px;
     height: 45px;
     width: 200px;

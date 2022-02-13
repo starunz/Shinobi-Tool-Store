@@ -8,6 +8,7 @@ import ShortDistance from "./categories/shortDistance/ShorDistance";
 import LongDistance from "./categories/longDistance";
 import Product from "./Product/product";
 import Cart from "./cart/Cart";
+import Infos from "./infos/index";
 
 export {
     SignUp,
@@ -19,6 +20,7 @@ export {
     Categories,
     ShortDistance,
     LongDistance,
-    Product
+    Product,
+    Infos
 }
 
