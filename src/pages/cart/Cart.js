@@ -89,7 +89,15 @@ export default function Cart() {
                     })
             }
         })
+    }
 
+    function handleConfirm() {
+
+        if (cartProducts.length === 0) {
+            return;
+        }
+
+        navigate('/infos')
     }
 
     useEffect(loadCart, [lever])
@@ -132,7 +140,7 @@ export default function Cart() {
                     <Total>Total: $ {totalAmount}</Total>
 
                     <Buttons>
-                        <ConfirmButton onClick={() => navigate('/infos')} >Avançar</ConfirmButton>
+                        <ConfirmButton onClick={handleConfirm} >Avançar</ConfirmButton>
                         <ShopButton onClick={() => navigate('/')}>Continuar comprando</ShopButton>
                     </Buttons>
                 </Content>
