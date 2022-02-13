@@ -1,5 +1,7 @@
 import { Product, Informations, ProductData, Button } from './style';
-import { CashOutline } from 'react-ionicons';
+//import { CashOutline } from 'react-ionicons';
+
+import {IoCartOutline} from 'react-icons/io5'
 
 export default function Products({ name, price, quantity, category }) {
     return (
@@ -17,7 +19,7 @@ export default function Products({ name, price, quantity, category }) {
                 </Informations>
                 <Button>
                     Comprar
-                    <CashOutline
+                    <IoCartOutline 
                         color={'#00000'}
                         title={'buy'}
                         height="25px"
@@ -28,3 +30,10 @@ export default function Products({ name, price, quantity, category }) {
         </>
     )
 }
+
+/*<CashOutline
+color={'#00000'}
+title={'buy'}
+height="25px"
+width="25px"
+/>*/
