@@ -23,7 +23,7 @@ const login = (body) => {
 }
 
 const getProducts = () => {
-    const promise = api.get('/');
+    const promise = api.get('/')
 
     return promise;
 }
@@ -34,9 +34,41 @@ const getProduct = (id) => {
     return promise;
 }
 
+const sendToCart = (body, token, productId) => {
+    const configAuth = config(token)
+    const promise = api.post(`/product/${productId}`, body, configAuth)
+
+    return promise;
+}
+
+const getUserCart = (token) => {
+    const configAuth = config(token)
+    const promise = api.get('/cart', configAuth)
+
+    return promise;
+}
+
+const updateCart = (id, qty, change, token) => {
+    const configAuth = config(token)
+    const promise = api.post('/cart', { id, qty, change }, configAuth)
+
+    return promise;
+}
+
+const deleteItem = (id, qty, token) => {
+    const configAuth = config(token)
+    const promise = api.post(`/cart/${id}`, { quantity: qty }, configAuth)
+
+    return promise;
+}
+
 export {
     signUp,
     login,
     getProducts,
-    getProduct
+    getProduct,
+    sendToCart,
+    getUserCart,
+    updateCart,
+    deleteItem
 }

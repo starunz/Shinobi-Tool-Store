@@ -34,6 +34,7 @@ body {
     line-height: 1;
     background-color: #fff;
     background-image: url('../assets/images/back.png');
+    background-size: 400px 400px;
 }
 ol, ul {
     list-style: none;

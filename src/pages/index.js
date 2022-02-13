@@ -7,11 +7,13 @@ import Categories from "./categories";
 import ShortDistance from "./categories/shortDistance/ShorDistance";
 import LongDistance from "./categories/longDistance";
 import Product from "./Product/product";
+import Cart from "./cart/Cart";
 
 export {
     SignUp,
     Login,
     Home,
+    Cart,
     Support,
     Team,
     Categories,
