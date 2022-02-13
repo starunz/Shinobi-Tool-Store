@@ -10,7 +10,7 @@ import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 
 const NavIcon = styled(Link)`
-  //margin-left: 2rem;
+  margin-left: 5px;
   font-size: 30px;
 
   height: 80px;
@@ -24,7 +24,7 @@ const SidebarNav = styled.nav`
   width: 250px;
   height: 100vh;
 
-  background: #15171c;
+  background-color: #1C1C1C;
 
   display: flex;
   justify-content: center;
