@@ -1,12 +1,17 @@
 import { Product, Informations, ProductData, Button } from './style';
 //import { CashOutline } from 'react-ionicons';
 
-import {IoCartOutline} from 'react-icons/io5'
+import { IoCashOutline } from 'react-icons/io5'
+//import { CashOutline } from 'react-ionicons';
+import { useNavigate } from 'react-router-dom';
 
-export default function Products({ name, price, quantity, category }) {
+export default function Products({ id, name, price, quantity, category }) {
+
+    const navigate = useNavigate();
+
     return (
         <>
-            <Product>
+            <Product onClick={() => navigate(`/product/${id}`)}>
                 <div className="image">
                     <img src='https://img.joomcdn.net/19aa34e749cab8a3c251114385d098c3ac86b8ba_original.jpeg' alt='' />
                 </div>
@@ -19,7 +24,7 @@ export default function Products({ name, price, quantity, category }) {
                 </Informations>
                 <Button>
                     Comprar
-                    <IoCartOutline 
+                    <IoCashOutline 
                         color={'#00000'}
                         title={'buy'}
                         height="25px"

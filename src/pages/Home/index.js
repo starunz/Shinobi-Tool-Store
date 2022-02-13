@@ -2,7 +2,7 @@ import Header from "../../components/Header";
 import { Container, ProductsTitle } from './style';
 import Products from "../../components/Products";
 import { useEffect, useState } from "react";
-import * as api from '../../services/api'
+import * as api from '../../services/api';
 
 export default function Home() {
 
@@ -26,7 +26,7 @@ export default function Home() {
                 <Header />
                 <ProductsTitle>Nossos produtos: </ProductsTitle>
                 {apiProducts.map((product) => (
-                    <Products key={product._id} name={product.name} price={product.price} quantity={product.quantity} category={product.category}></Products>
+                    <Products key={product._id} id={product._id} name={product.name} price={product.price} quantity={product.quantity} category={product.category}></Products>
                 ))}
 
             </Container>

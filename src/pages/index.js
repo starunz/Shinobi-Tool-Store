@@ -6,6 +6,7 @@ import Team from "./team";
 import Categories from "./categories";
 import ShortDistance from "./categories/shortDistance/ShorDistance";
 import LongDistance from "./categories/longDistance";
+import Product from "./Product/product";
 
 export {
     SignUp,
@@ -16,5 +17,6 @@ export {
     Categories,
     ShortDistance,
     LongDistance,
+    Product
 }
 

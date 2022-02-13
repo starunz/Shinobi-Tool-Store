@@ -28,8 +28,15 @@ const getProducts = () => {
     return promise;
 }
 
+const getProduct = (id) => {
+    const promise = api.get(`/product/${id}`)
+
+    return promise;
+}
+
 export {
     signUp,
     login,
     getProducts,
+    getProduct
 }
