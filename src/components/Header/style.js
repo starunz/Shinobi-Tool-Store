@@ -14,13 +14,15 @@ const Container = styled.div`
     top: 0;
     left: 0;
     
-    background-color: #849173;
+    background-color: #1C1C1C;
     box-shadow: 0 4px 4px rgba(0,0,0,0.5);
 `
 
 const ShinobiStore = styled.div`
 
+    font-family: 'Saira Stencil One';
     font-size: 30px;
+    color: #fff;
 
 `
 

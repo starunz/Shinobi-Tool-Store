@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 
 const Login = () => {
 
-    const [signInData, setSignInData] = useState({ email: '', password: ''});
+    const [signInData, setSignInData] = useState({ email: '', password: '' });
     const [isLoading, setIsLoading] = useState(false);
 
     const { auth, login } = useAuth();
@@ -19,7 +19,7 @@ const Login = () => {
 
     useEffect(() => {
         if (auth && auth.token) {
-        navigate("/wallet");
+            navigate("/wallet");
         }
     }, []);
 
@@ -35,17 +35,17 @@ const Login = () => {
         try {
             const promisse = await api.login({ ...signInData });
             setIsLoading(false);
-    
+
             login(promisse.data);
             navigate('/ue');
         }
         catch (error) {
-           setIsLoading(false);
+            setIsLoading(false);
 
             if (error.response.status === 422) {
                 setSignInData({
-                email: '',
-                password: '',
+                    email: '',
+                    password: '',
                 });
 
                 Swal.fire({
@@ -59,8 +59,8 @@ const Login = () => {
 
             if (error.response.status === 401) {
                 setSignInData({
-                email: '',
-                password: '',
+                    email: '',
+                    password: '',
                 });
 
                 Swal.fire({
@@ -73,10 +73,10 @@ const Login = () => {
             }
         }
     }
-    
+
     return (
         <Container>
-            <Title>Shinobi Tool <br/> Store</Title>
+            <Title>Shinobi Tool <br /> Store</Title>
 
             <Form onSubmit={handleSignIn}>
                 <Input
@@ -98,11 +98,11 @@ const Login = () => {
                     required
                 />
                 <Button type='submit' disabled={isLoading}>
-                {isLoading ? (
-                    <ThreeDots color="#FFFFFF" height={50} width={50} />
-                ) : (
-                    'Entrar'
-                )}
+                    {isLoading ? (
+                        <ThreeDots color="#FFFFFF" height={50} width={50} />
+                    ) : (
+                        'Entrar'
+                    )}
                 </Button>
             </Form>
 

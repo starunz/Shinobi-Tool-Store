@@ -1,5 +1,4 @@
 import { Product, Informations, ProductData, Button } from './style';
-import { CashOutline } from 'react-ionicons';
 import { useNavigate } from 'react-router-dom';
 
 export default function Products({ id, name, price, quantity, category }) {
@@ -20,13 +19,7 @@ export default function Products({ id, name, price, quantity, category }) {
                     </ProductData>
                 </Informations>
                 <Button>
-                    Comprar
-                    <CashOutline
-                        color={'#00000'}
-                        title={'buy'}
-                        height="25px"
-                        width="25px"
-                    />
+                    Visualizar item
                 </Button>
             </Product>
         </>

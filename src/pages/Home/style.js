@@ -11,6 +11,15 @@ const Container = styled.div`
 
 `
 
+const Content = styled.div`
+
+    background-color: #fff;
+    width: 90vw;
+    padding: 10px;
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.7);
+
+`
+
 const ProductsTitle = styled.div`
 
     width: 90vw;
@@ -24,4 +33,5 @@ const ProductsTitle = styled.div`
 export {
     Container,
     ProductsTitle,
+    Content
 }
