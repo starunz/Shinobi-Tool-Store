@@ -8,7 +8,9 @@ const Container = styled.div`
 
   margin: calc((100vh - 400px) / 2) auto;
 
-  background-color: #fff;
+  background-color: #1C1C1C;
+
+  opacity: 0.9;
 `;
 
 export default Container;
