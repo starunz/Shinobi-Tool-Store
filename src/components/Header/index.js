@@ -24,7 +24,7 @@ export default function Header() {
                 imageUrl: `${kakashi}`,
                 imageHeight: 140,
                 showCancelButton: true,
-                confirmButtonColor: '#E6814A',
+                confirmButtonColor: '#1C1C1C',
                 cancelButtonColor: '#b8b8b8',
                 confirmButtonText: 'Logar',
                 cancelButtonText: 'Cancelar'

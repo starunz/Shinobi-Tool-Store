@@ -7,6 +7,7 @@ const MessageInput = styled.textarea`
     margin-bottom: 40px;
 
     border-radius: 5px;
+    border: 1px solid #1C1C1C;
     padding: 10px;
 
     ::placeholder{

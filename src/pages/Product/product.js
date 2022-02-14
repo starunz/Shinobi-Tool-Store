@@ -6,8 +6,8 @@ import {
     AddCart, ProductFooter, ProductCategory,
     ProductPrice, ReturnButton
 }
-from "./style";
-import { IoCheckmarkCircle, IoCloseCircle} from 'react-icons/io5'
+    from "./style";
+import { IoCheckmarkCircle, IoCloseCircle } from 'react-icons/io5'
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as api from '../../services/api';
@@ -89,7 +89,7 @@ export default function Product() {
                 imageUrl: `${kakashi}`,
                 imageHeight: 140,
                 showCancelButton: true,
-                confirmButtonColor: '#E6814A',
+                confirmButtonColor: '#1C1C1C',
                 cancelButtonColor: '#b8b8b8',
                 confirmButtonText: 'Logar',
                 cancelButtonText: 'Cancelar'
@@ -118,19 +118,19 @@ export default function Product() {
                     <ProductData>
                         <DataHeader unavailable={unavailable}>
                             {!unavailable ?
-                            <IoCheckmarkCircle
-                                color={'green'}
-                                title={'check'}
-                                height="15px"
-                                width="15px"
-                            />
-                            :
-                            <IoCloseCircle
-                                color={'red'}
-                                title={'check'}
-                                height="15px"
-                                width="15px"
-                            />
+                                <IoCheckmarkCircle
+                                    color={'green'}
+                                    title={'check'}
+                                    height="15px"
+                                    width="15px"
+                                />
+                                :
+                                <IoCloseCircle
+                                    color={'red'}
+                                    title={'check'}
+                                    height="15px"
+                                    width="15px"
+                                />
                             }
                             {!unavailable ?
                                 <p>Produto Disponível</p> :
