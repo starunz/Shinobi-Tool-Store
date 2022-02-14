@@ -24,6 +24,7 @@ const SidebarLink = styled(Link)`
 
     cursor: pointer;
   }
+
 `;
 
 const SidebarLabel = styled.span`
