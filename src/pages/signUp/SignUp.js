@@ -1,4 +1,4 @@
-import { Container, Title, Form, Input, Button, Liink, } from '../../components/styleSignIn&SignUp';
+import {Title, Form, Input, Button, Liink, } from '../../components/styleSignIn&SignUp';
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,8 @@ import * as api from '../../services/api'
 
 import { ThreeDots } from 'react-loader-spinner';
 import Swal from 'sweetalert2'
+
+import styled from 'styled-components';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -147,9 +149,22 @@ const SignUp = () => {
         </Button>
       </Form>
 
-      <Liink to='/'>Já tem uma conta? Entre agora!</Liink>
+      <Liink to='/login'>Já tem uma conta? Entre agora!</Liink>
     </Container>
   );
 }
 
 export default SignUp;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: calc((100vh - 515px) / 2) auto;
+
+  background-color: #1C1C1C;
+
+  opacity: 0.9;
+`;

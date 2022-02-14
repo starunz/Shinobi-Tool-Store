@@ -20,7 +20,7 @@ const Button = styled.button`
   text-align: center;
 
   background-color: #ffffff;
-  color: #000000;
+  color: #1C1C1C;
 `;
 
 export default Button;
