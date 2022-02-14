@@ -176,15 +176,21 @@ const Sidebar = () => {
               })}
             </SidebarWrap>
 
-            <ContainerCart to='#' onClick={handleCart}>
-              <span><Icon.IoCartSharp /></span>
-              <p>carrinho</p>
-            </ContainerCart>
+            {
+              sidebar ? 
+              <>
+                <ContainerCart to='#' onClick={handleCart}>
+                  <span><Icon.IoCartSharp /></span>
+                  <p>Carrinho</p>
+                </ContainerCart>
 
-            <ContainerLogout to ='/' onClick={() => { logoff()}}>
-              <span><Ioicons.IoExitSharp /></span>
-              <p>Logout</p>
-            </ContainerLogout>
+                <ContainerLogout to ='/' onClick={() => { logoff()}}>
+                  <span><Ioicons.IoExitSharp /></span>
+                  <p>Logout</p>
+                </ContainerLogout> 
+              </> : <></>
+            }
+
         </SidebarNav>
 
       </IconContext.Provider>
