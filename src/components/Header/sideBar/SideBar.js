@@ -118,7 +118,7 @@ const Sidebar = () => {
 
         Swal.fire({
             title: 'AAAAAA...',
-            text: "Você está logado! Clique em continuar para visualizar o carrinho",
+            text: "Você está logado! Clique em continuar para visualizar o carrinho.",
             imageUrl: `${lee}`,
             imageHeight: 140,
             showCancelButton: true,
