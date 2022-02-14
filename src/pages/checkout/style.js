@@ -6,10 +6,10 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
 
-    margin-top: calc((100vh - 500px) / 2);
+    margin-top: calc((100vh - 350px) / 2);
 `
 const ProductContent = styled.div`
-    width: 80%;
+    width: 85%;
     height: auto;
 
     padding: 12px;

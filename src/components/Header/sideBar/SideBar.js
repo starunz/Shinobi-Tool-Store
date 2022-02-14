@@ -181,7 +181,7 @@ const Sidebar = () => {
               <>
                 <ContainerCart to='#' onClick={handleCart}>
                   <span><Icon.IoCartSharp /></span>
-                  <p>carrinho</p>
+                  <p>Carrinho</p>
                 </ContainerCart>
 
                 <ContainerLogout to ='/' onClick={() => { logoff()}}>
