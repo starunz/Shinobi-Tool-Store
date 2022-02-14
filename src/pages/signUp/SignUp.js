@@ -10,6 +10,9 @@ import Swal from 'sweetalert2'
 
 import styled from 'styled-components';
 
+import pain from '../../assets/images/pain.png';
+import narutin from '../../assets/images/narutin.png';
+
 const SignUp = () => {
   const navigate = useNavigate();
 
@@ -37,9 +40,10 @@ const SignUp = () => {
       setIsLoading(false);
 
       Swal.fire({
-        icon: "error",
+        imageUrl: `${pain}`,
+        imageHeight: 140,
         title: "OOPS...",
-        text: 'As senhas não são correspondentes 🤔 tenta de novo, por favor 😉',
+        text: 'As senhas não são correspondentes tente de novo, por favor.',
       });
 
       return;
@@ -54,14 +58,15 @@ const SignUp = () => {
       setIsLoading(false);
 
       if (error.response.status === 409) {
-        setSignUpData({ ...signUpData, email: '' });
-        
+        setSignUpData({ ...signUpData, email: '' })
+
         Swal.fire({
-          icon: "error",
+          imageUrl: `${narutin}`,
+          imageHeight: 140,
           title: "OOPS...",
-          text: 'Este email já está cadastrado 🤔',
+          text: 'Este email já está cadastrado.',
         });
-        
+
         return;
       }
 
@@ -74,18 +79,20 @@ const SignUp = () => {
         });
         
         Swal.fire({
-          icon: "error",
+          imageUrl: `${pain}`,
+          imageHeight: 140,
           title: "OOPS...",
-          text: 'Insira os dados corretamente, por favor 😉',
+          text: 'Insira os dados corretamente, por favor.',
         });
         
         return;
       }
 
       Swal.fire({
-        icon: "error",
+        imageUrl: `${pain}`,
+        imageHeight: 140,
         title: "OOPS...",
-        text: 'Ocorreu um erro 🤔, tenta de novo, por favor 🥺',
+        text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
       });
 
       setSignUpData({

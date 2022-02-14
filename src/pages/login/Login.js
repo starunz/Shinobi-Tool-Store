@@ -9,6 +9,8 @@ import useAuth from '../../hooks/useAuth';
 import { ThreeDots } from 'react-loader-spinner';
 import Swal from 'sweetalert2'
 
+import pain from '../../assets/images/pain.png';
+
 const Login = () => {
 
     const [signInData, setSignInData] = useState({ email: '', password: '' });
@@ -51,9 +53,10 @@ const Login = () => {
                 });
 
                 Swal.fire({
-                    icon: "error",
+                    imageUrl: `${pain}`,
+                    imageHeight: 140,
                     title: "OOPS...",
-                    text: 'Insira os dados corretamente, por favor 😉',
+                    text: 'Insira os dados corretamente, por favor.',
                 });
 
                 return;
@@ -66,10 +69,12 @@ const Login = () => {
                 });
 
                 Swal.fire({
-                    icon: "error",
+                    imageUrl: `${pain}`,
+                    imageHeight: 140,
                     title: "OOPS...",
-                    text: 'Email e/ou senha incorretos, insira os dados corretamente, por favor 😉',
+                    text: 'Email e/ou senha incorretos, insira os dados corretamente, por favor.',
                 });
+
 
                 return;
             }
