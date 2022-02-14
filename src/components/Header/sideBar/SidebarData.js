@@ -16,31 +16,15 @@ export const SidebarData = [
     subNav: [
       {
         title: 'curta distância',
-        path: 'curtadistancia',
+        path: '/categorias/curtadistancia',
         //icon: <IoIcons.IoIosPaper />
       },
       {
         title: 'longa distância',
-        path: 'longadistancia',
+        path: '/categorias/longadistancia',
         //icon: <IoIcons.IoIosPaper />
       },
 
-    ]
-  },
-  {
-    title: 'Reports',
-    path: '/reports',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Report',
-        path: '/reports/report',
-        //icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
     ]
   },
   {

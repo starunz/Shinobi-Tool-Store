@@ -5,7 +5,7 @@ const Title = styled.div`
   font-family: 'Saira Stencil One', sans-serif;
   font-weight: 400;
 
-  margin-bottom: 15px;
+  margin-top: 15px;
 
   color: #ffffff;
   text-align: center;
