@@ -42,7 +42,8 @@ export default function Infos() {
                     imageHeight: 140,
                     title: "OOPS...",
                     text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
-                });
+                })
+                setIsLoading(false)
             })
     }
 

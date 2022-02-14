@@ -69,6 +69,12 @@ const sendInfos = (token, body) => {
     return promise;
 }
 
+const sendMessage = (body) => {
+    const promise = api.post('/support', body)
+
+    return promise;
+}
+
 export {
     signUp,
     login,
@@ -78,5 +84,6 @@ export {
     getUserCart,
     updateCart,
     deleteItem,
-    sendInfos
+    sendInfos,
+    sendMessage
 }
