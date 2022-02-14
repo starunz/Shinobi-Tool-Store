@@ -56,7 +56,7 @@ export default function Product() {
     function handleAddToCart() {
         if (auth && auth.token) {
 
-            const promise = api.sendToCart({ name: apiProduct[0].name, quantity: 1, price: apiProduct[0].price }, auth.token, apiProduct[0]._id,);
+            const promise = api.sendToCart({ name: apiProduct[0].name, quantity: 1, price: apiProduct[0].price, image: apiProduct[0].image }, auth.token, apiProduct[0]._id,);
 
             promise.then(() => {
 

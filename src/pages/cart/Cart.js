@@ -53,7 +53,7 @@ export default function Cart() {
 
         const promise = api.updateCart(id, qty, change, auth.token);
 
-        promise.then(setLever(!lever))
+        promise.then(() => setLever(!lever))
             .catch(() => {
                 Swal.fire({
                     imageUrl: `${pain}`,
@@ -78,7 +78,7 @@ export default function Cart() {
             if (result.isConfirmed) {
                 const promise = api.deleteItem(id, qty, auth.token);
 
-                promise.then(setLever(!lever))
+                promise.then(() => setLever(!lever))
                     .catch(() => {
                         Swal.fire({
                             imageUrl: `${pain}`,
@@ -115,7 +115,7 @@ export default function Cart() {
                     {cartProducts.map((cartProduct) => (
                         <ProductCart key={cartProduct.productId}>
                             <Data>
-                                <img src='https://img.joomcdn.net/19aa34e749cab8a3c251114385d098c3ac86b8ba_original.jpeg' alt='' />
+                                <img src={cartProduct.image} alt='' />
                                 <div>
                                     <h3>{cartProduct.name}</h3>
                                     <Price>$ {cartProduct.price * cartProduct.quantity}</Price>
