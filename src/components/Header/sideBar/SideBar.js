@@ -116,23 +116,23 @@ const Sidebar = () => {
   function handleCart() {
     if (auth && auth.token) {
 
-      Swal.fire({
-        title: 'AAAAAA...',
-        text: "Você está logado! Clique em continuar para visualizar o carrinho",
-        imageUrl: `${lee}`,
-        imageHeight: 140,
-        showCancelButton: true,
-        confirmButtonColor: '#1C1C1C',
-        cancelButtonColor: '#b8b8b8',
-        confirmButtonText: 'Continuar',
-        cancelButtonText: 'Cancelar',
-        button: navigate('/login')
-      })
+        Swal.fire({
+            title: 'AAAAAA...',
+            text: "Você está logado! Clique em continuar para visualizar o carrinho.",
+            imageUrl: `${lee}`,
+            imageHeight: 140,
+            showCancelButton: true,
+            confirmButtonColor: '#1C1C1C',
+            cancelButtonColor: '#b8b8b8',
+            confirmButtonText: 'Continuar',
+            cancelButtonText: 'Cancelar',
+            button: navigate('/login')
+        })
         .then((result) => {
           if (result.isConfirmed) {
-            navigate('/cart');
+              navigate('/cart');
           }
-        })
+      })
 
     } else {
 
@@ -166,25 +166,25 @@ const Sidebar = () => {
         </NavIcon>
 
         <SidebarNav sidebar={sidebar}>
-          <SidebarWrap >
+            <SidebarWrap >
 
-            <NavIcon to='#'>
-              <AiIcons.AiOutlineClose onClick={showSidebar} />
-            </NavIcon>
-            {SidebarData.map((item, index) => {
+              <NavIcon to='#'>
+                  <AiIcons.AiOutlineClose onClick={showSidebar} />
+              </NavIcon>
+              {SidebarData.map((item, index) => {
               return <SubMenu item={item} key={index} />;
-            })}
-          </SidebarWrap>
+              })}
+            </SidebarWrap>
 
-          <ContainerCart to='#' onClick={handleCart}>
-            <span><Icon.IoCartSharp /></span>
-            <p>carrinho</p>
-          </ContainerCart>
+            <ContainerCart to='#' onClick={handleCart}>
+              <span><Icon.IoCartSharp /></span>
+              <p>carrinho</p>
+            </ContainerCart>
 
-          <ContainerLogout to='/' onClick={() => { logoff() }}>
-            <span><Ioicons.IoExitSharp /></span>
-            <p>Logout</p>
-          </ContainerLogout>
+            <ContainerLogout to ='/' onClick={() => { logoff()}}>
+              <span><Ioicons.IoExitSharp /></span>
+              <p>Logout</p>
+            </ContainerLogout>
         </SidebarNav>
 
       </IconContext.Provider>
