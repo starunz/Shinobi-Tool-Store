@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import useAuth from '../../../hooks/useAuth'
+
 import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as Ioicons from 'react-icons/io5'
 import { IconContext } from 'react-icons/lib';
 
 import { SidebarData } from './SidebarData';
@@ -20,6 +23,28 @@ const NavIcon = styled(Link)`
   align-items: center;
 `;
 
+const ContainerLogout = styled(Link)`
+  margin-left: 8px;
+  font-size: 20px;
+
+  list-style: none;
+
+  height: 80px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+
+  p{
+    font-size: 18px;
+    margin-left: 10px;
+  }
+`
+
 const SidebarNav = styled.nav`
   width: 250px;
   height: 100vh;
@@ -34,7 +59,7 @@ const SidebarNav = styled.nav`
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
 
   transition: 350ms;
-  z-index: 10;
+  z-index: 1;
 `;
 
 const SidebarWrap = styled.div`
@@ -45,6 +70,8 @@ const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  const { logoff } = useAuth()
 
   return (
     <>
@@ -64,9 +91,13 @@ const Sidebar = () => {
                 return <SubMenu item={item} key={index} />;
                 })}
             </SidebarWrap>
-        </SidebarNav>
-        
 
+            <ContainerLogout to ='/' onClick={() => { logoff()}}>
+              <Ioicons.IoExitSharp />
+              <p > Logout</p>
+            </ContainerLogout>
+        </SidebarNav>
+      
       </IconContext.Provider>
     </>
   );
