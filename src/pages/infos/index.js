@@ -28,7 +28,12 @@ export default function Infos() {
         e.preventDefault();
 
         if (!buyerData.name || !buyerData.adress || !buyerData.village || !buyerData.payment || buyerData.payment === 'default') {
-            alert('pereencha')
+            Swal.fire({
+                imageUrl: `${pain}`,
+                imageHeight: 140,
+                title: "OOPS...",
+                text: 'Preencha todos os campos corretamente para continuar.',
+            })
             return
         }
         setIsLoading(true);
