@@ -58,7 +58,11 @@ export default function Product() {
         })
     }
 
-    useEffect(loadProduct, []);
+    useEffect(
+        loadProduct
+
+        // eslint-disable-next-line 
+    ,[]);
 
     function handleAddToCart() {
         if (auth && auth.token) {

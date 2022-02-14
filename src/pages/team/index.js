@@ -3,7 +3,6 @@ import { ProductsTitle, Container } from '../Home/style';
 
 import styled from "styled-components";
 
-
 export default function Team() {
     return (
         <>

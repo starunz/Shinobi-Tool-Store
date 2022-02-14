@@ -34,6 +34,20 @@ const getProduct = (id) => {
     return promise;
 }
 
+const getOrder = (token) => {
+    const configAuth = config(token)
+    const promise = api.get('/checkout', configAuth)
+
+    return promise;
+}
+
+const postOrder = (body ,token) => {
+    const configAuth = config(token)
+    const promise = api.post('/checkout', body, configAuth)
+
+    return promise;
+}
+
 const sendToCart = (body, token, productId) => {
     const configAuth = config(token)
     const promise = api.post(`/product/${productId}`, body, configAuth)
@@ -79,11 +93,13 @@ export {
     signUp,
     login,
     getProducts,
-    getProduct,
+    getProduct, 
+    getOrder,
     sendToCart,
     getUserCart,
     updateCart,
     deleteItem,
     sendInfos,
-    sendMessage
+    sendMessage,
+    postOrder
 }

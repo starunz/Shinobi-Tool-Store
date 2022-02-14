@@ -100,7 +100,11 @@ export default function Cart() {
         navigate('/infos')
     }
 
-    useEffect(loadCart, [lever])
+    useEffect(
+        loadCart
+
+        // eslint-disable-next-line 
+    , [lever])
 
     return (
         <>

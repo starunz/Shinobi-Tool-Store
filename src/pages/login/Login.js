@@ -21,6 +21,8 @@ const Login = () => {
         if (auth && auth.token) {
             navigate('/');
         }
+
+        // eslint-disable-next-line 
     }, []);
 
     function handleChange(e) {

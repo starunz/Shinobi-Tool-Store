@@ -7,6 +7,7 @@ import Categories from "./categories";
 import ShortDistance from "./categories/shortDistance/ShorDistance";
 import LongDistance from "./categories/longDistance";
 import Product from "./Product/product";
+import Checkout from "./checkout/Checkout";
 import Cart from "./cart/Cart";
 import Infos from "./infos/index";
 
@@ -21,6 +22,7 @@ export {
     ShortDistance,
     LongDistance,
     Product,
+    Checkout,
     Infos
 }
 
