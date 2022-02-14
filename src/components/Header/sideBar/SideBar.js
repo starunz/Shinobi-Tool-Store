@@ -78,26 +78,26 @@ const Sidebar = () => {
       <IconContext.Provider value={{ color: '#fff' }}>
 
         <NavIcon to='#'>
-            <FaIcons.FaBars onClick={showSidebar} />
+          <FaIcons.FaBars onClick={showSidebar} />
         </NavIcon>
 
         <SidebarNav sidebar={sidebar}>
-            <SidebarWrap >
+          <SidebarWrap >
 
-                <NavIcon to='#'>
-                    <AiIcons.AiOutlineClose onClick={showSidebar} />
-                </NavIcon>
-                {SidebarData.map((item, index) => {
-                return <SubMenu item={item} key={index} />;
-                })}
-            </SidebarWrap>
+            <NavIcon to='#'>
+              <AiIcons.AiOutlineClose onClick={showSidebar} />
+            </NavIcon>
+            {SidebarData.map((item, index) => {
+              return <SubMenu item={item} key={index} />;
+            })}
+          </SidebarWrap>
 
-            <ContainerLogout to ='/' onClick={() => { logoff()}}>
-              <Ioicons.IoExitSharp />
-              <p > Logout</p>
-            </ContainerLogout>
+          <ContainerLogout to='/' onClick={() => { logoff() }}>
+            <Ioicons.IoExitSharp />
+            <p > Logout</p>
+          </ContainerLogout>
         </SidebarNav>
-      
+
       </IconContext.Provider>
     </>
   );
