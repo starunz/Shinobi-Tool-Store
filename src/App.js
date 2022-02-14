@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { SignUp, Login, Home, Support, Team, Categories, ShortDistance, LongDistance, Product} from "./pages";
+import { SignUp, Login, Home, Support, Team, Categories, ShortDistance, LongDistance, Product, Checkout} from "./pages";
 
 import { AuthProvider } from "./contexts/AuthContext";
 
@@ -18,6 +18,7 @@ const App = () => {
                     <Route path='/categorias/curtadistancia' element={< ShortDistance />} />
                     <Route path='/categorias/longadistancia' element={< LongDistance />} />
                     <Route path='/product/:productId' element={< Product />} />
+                    <Route path='/checkout' element={< Checkout />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

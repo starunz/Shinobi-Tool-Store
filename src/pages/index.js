@@ -7,6 +7,7 @@ import Categories from "./categories";
 import ShortDistance from "./categories/shortDistance/ShorDistance";
 import LongDistance from "./categories/longDistance";
 import Product from "./Product/product";
+import Checkout from "./checkout";
 
 export {
     SignUp,
@@ -17,6 +18,7 @@ export {
     Categories,
     ShortDistance,
     LongDistance,
-    Product
+    Product,
+    Checkout
 }
 

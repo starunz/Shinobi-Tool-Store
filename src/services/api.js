@@ -34,9 +34,17 @@ const getProduct = (id) => {
     return promise;
 }
 
+const getOrder = (token) => {
+    const newConfig = config(token)
+    const promise = api.get('/checkout', newConfig)
+
+    return promise;
+}
+
 export {
     signUp,
     login,
     getProducts,
-    getProduct
+    getProduct, 
+    getOrder,
 }
