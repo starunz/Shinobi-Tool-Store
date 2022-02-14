@@ -57,7 +57,7 @@ const ProductData = styled.div`
 
     p {
         font-size: 18px;
-        color: green;
+        color: #028000;
 
         font-weight: bold;
     }

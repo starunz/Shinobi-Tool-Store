@@ -1,5 +1,4 @@
 import { Product, Informations, ProductData, Button } from './style';
-import { IoCashOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom';
 
 export default function Products({ id, name, price, quantity, category }) {
