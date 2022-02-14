@@ -1,8 +1,10 @@
 import Header from "../../components/Header";
-import { Container, ProductsTitle } from './style';
+import { Container, ProductsTitle, Content } from './style';
 import Products from "../../components/Products";
 import { useEffect, useState } from "react";
 import * as api from '../../services/api';
+import Swal from "sweetalert2";
+import pain from '../../assets/images/pain.png';
 
 export default function Home() {
 
@@ -12,7 +14,12 @@ export default function Home() {
         api.getProducts().then((response) => {
             setApiProducts(response.data);
         }).catch(error => {
-            alert('Algo deu errado. Tente novamente.');
+            Swal.fire({
+                imageUrl: `${pain}`,
+                imageHeight: 140,
+                title: "OOPS...",
+                text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
+            });
         })
     }, []);
 
@@ -24,10 +31,12 @@ export default function Home() {
         <>
             <Container>
                 <Header />
-                <ProductsTitle>Nossos produtos: </ProductsTitle>
-                {apiProducts.map((product) => (
-                    <Products key={product._id} id={product._id} name={product.name} price={product.price} quantity={product.quantity} category={product.category}></Products>
-                ))}
+                <Content>
+                    <ProductsTitle>Produtos: </ProductsTitle>
+                    {apiProducts.map((product) => (
+                        <Products key={product._id} id={product._id} name={product.name} price={product.price} quantity={product.quantity} category={product.category}></Products>
+                    ))}
+                </Content>
 
             </Container>
         </>

@@ -23,7 +23,7 @@ const login = (body) => {
 }
 
 const getProducts = () => {
-    const promise = api.get('/');
+    const promise = api.get('/')
 
     return promise;
 }
@@ -35,8 +35,56 @@ const getProduct = (id) => {
 }
 
 const getOrder = (token) => {
-    const newConfig = config(token)
-    const promise = api.get('/checkout', newConfig)
+    const configAuth = config(token)
+    const promise = api.get('/checkout', configAuth)
+
+    return promise;
+}
+
+const postOrder = (body ,token) => {
+    const configAuth = config(token)
+    const promise = api.post('/checkout', body, configAuth)
+
+    return promise;
+}
+
+const sendToCart = (body, token, productId) => {
+    const configAuth = config(token)
+    const promise = api.post(`/product/${productId}`, body, configAuth)
+
+    return promise;
+}
+
+const getUserCart = (token) => {
+    const configAuth = config(token)
+    const promise = api.get('/cart', configAuth)
+
+    return promise;
+}
+
+const updateCart = (id, qty, change, token) => {
+    const configAuth = config(token)
+    const promise = api.post('/cart', { id, qty, change }, configAuth)
+
+    return promise;
+}
+
+const deleteItem = (id, qty, token) => {
+    const configAuth = config(token)
+    const promise = api.post(`/cart/${id}`, { quantity: qty }, configAuth)
+
+    return promise;
+}
+
+const sendInfos = (token, body) => {
+    const configAuth = config(token)
+    const promise = api.post('/infos', body, configAuth)
+
+    return promise;
+}
+
+const sendMessage = (body) => {
+    const promise = api.post('/support', body)
 
     return promise;
 }
@@ -47,4 +95,11 @@ export {
     getProducts,
     getProduct, 
     getOrder,
+    sendToCart,
+    getUserCart,
+    updateCart,
+    deleteItem,
+    sendInfos,
+    sendMessage,
+    postOrder
 }

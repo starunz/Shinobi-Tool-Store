@@ -28,22 +28,6 @@ export const SidebarData = [
     ]
   },
   {
-    title: 'Reports',
-    path: '/reports',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Report',
-        path: '/reports/report',
-        //icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-    ]
-  },
-  {
     title: 'Team',
     path: '/team',
     icon: <IoIcons.IoMdPeople />

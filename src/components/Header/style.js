@@ -18,12 +18,14 @@ const Container = styled.div`
 `
 
 const ShinobiStore = styled.div`
+
     font-size: 30px;
     font-family: 'Saira Stencil One', sans-serif;
     //font-weight: 400;
 
     color: #ffffff;
 `
+
 export {
     Container,
     ShinobiStore,

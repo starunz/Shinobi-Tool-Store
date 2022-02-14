@@ -14,15 +14,14 @@ const Product = styled.div`
     flex-direction: column;
 
     background-color: #fff;
-    box-shadow: 0px 0px 2px rgba(0,0,0,0.7);
 
     border-radius: 5px;
 
     .image {
         width: 50vw;
-        height: 18vh;
+        height: 50%;
         
-        border: 1px solid lightgray;
+        border: 1px solid rgba(0,0,0,0.1);
     }
 
     .image img {
@@ -58,7 +57,7 @@ const ProductData = styled.div`
 
     p {
         font-size: 18px;
-        color: green;
+        color: #028000;
 
         font-weight: bold;
     }
@@ -75,14 +74,16 @@ const Button = styled.button`
     height: 40px;
     padding: 5px;
     
-    font-size: 18px;
+    font-size: 16px;
     
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     
     border-radius: 50px;
-    background-color: #849173;
+    background-color: #1c1c1c;
+
+    color: #fff;
 
 `
 

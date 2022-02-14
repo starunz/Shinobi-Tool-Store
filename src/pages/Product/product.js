@@ -6,14 +6,16 @@ import {
     AddCart, ProductFooter, ProductCategory,
     ProductPrice, ReturnButton
 }
-from "./style";
-import { IoCheckmarkCircle, IoCloseCircle} from 'react-icons/io5'
+    from "./style";
+import { IoCheckmarkCircle, IoCloseCircle } from 'react-icons/io5'
 import { useEffect, useState } from "react";
-import cart from '../../assets/images/cart.png';
 import { useNavigate, useParams } from "react-router-dom";
 import * as api from '../../services/api';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import kakashi from '../../assets/images/kakashin.png';
+import narutin from '../../assets/images/narutin.png';
+import pain from '../../assets/images/pain.png';
 
 export default function Product() {
 
@@ -47,23 +49,51 @@ export default function Product() {
             }
 
         }).catch(() => {
-            alert('Algo deu errado. Tente Novamente.')
+            Swal.fire({
+                imageUrl: `${pain}`,
+                imageHeight: 140,
+                title: "OOPS...",
+                text: 'Algo deu errado. Será que destruiram nosso servidor?. Tente de novo em alguns instantes.',
+            });
         })
     }
 
-    useEffect(loadProduct, []);
+    useEffect(
+        loadProduct
+
+        // eslint-disable-next-line 
+    ,[]);
 
     function handleAddToCart() {
         if (auth && auth.token) {
-            navigate('/cart');
+
+            const promise = api.sendToCart({ name: apiProduct[0].name, quantity: 1, price: apiProduct[0].price }, auth.token, apiProduct[0]._id,);
+
+            promise.then(() => {
+
+                navigate('/cart');
+
+            }).catch((error) => {
+
+                if (error.response.status === 409) {
+                    Swal.fire({
+                        imageUrl: `${narutin}`,
+                        imageHeight: 140,
+                        title: "OOPS...",
+                        text: 'Você já possui este item no seu carrinho.',
+                    });
+                }
+            })
+
         } else {
+
             Swal.fire({
-                title: 'OPS!',
+                title: 'OOPS...',
                 text: "Você precisa estar logado para continuar.",
-                imageUrl: 'https://res.cloudinary.com/dzdgpwtox/image/upload/w_450,c_scale/v1612287799/designer-tool-uploads/bucket_4155/1612287796191.png',
-                imageHeight: 200,
+                imageUrl: `${kakashi}`,
+                imageHeight: 140,
                 showCancelButton: true,
-                confirmButtonColor: '#E6814A',
+                confirmButtonColor: '#1C1C1C',
                 cancelButtonColor: '#b8b8b8',
                 confirmButtonText: 'Logar',
                 cancelButtonText: 'Cancelar'
@@ -92,19 +122,19 @@ export default function Product() {
                     <ProductData>
                         <DataHeader unavailable={unavailable}>
                             {!unavailable ?
-                            <IoCheckmarkCircle
-                                color={'green'}
-                                title={'check'}
-                                height="15px"
-                                width="15px"
-                            />
-                            :
-                            <IoCloseCircle
-                                color={'red'}
-                                title={'check'}
-                                height="15px"
-                                width="15px"
-                            />
+                                <IoCheckmarkCircle
+                                    color={'green'}
+                                    title={'check'}
+                                    height="15px"
+                                    width="15px"
+                                />
+                                :
+                                <IoCloseCircle
+                                    color={'red'}
+                                    title={'check'}
+                                    height="15px"
+                                    width="15px"
+                                />
                             }
                             {!unavailable ?
                                 <p>Produto Disponível</p> :
@@ -124,7 +154,6 @@ export default function Product() {
                     <ProductFooter>
                         <AddCart disabled={unavailable} onClick={handleAddToCart}>
                             <p>Adicionar ao carrinho</p>
-                            <img src={cart} alt="" />
                         </AddCart>
                         <ReturnButton onClick={() => navigate(-1)}>Voltar para loja</ReturnButton>
                     </ProductFooter>

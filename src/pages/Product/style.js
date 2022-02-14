@@ -123,7 +123,7 @@ const AddCart = styled.button`
     padding: 20px;
 
     border-radius: 25px;
-    background-color: #E6814A;
+    background-color: #1C1C1C;
 
     font-size: 17px;
     color: #fff;
@@ -145,7 +145,7 @@ const ProductPrice = styled.div`
     text-align: right;
     font-size: 28px;
 
-    color: #E6814A;
+    color: #028000;
 
     font-weight: 600;
 
