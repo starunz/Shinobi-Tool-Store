@@ -23,9 +23,7 @@ export default function Product() {
     const { auth } = useAuth();
     const [unavailable, setUnavailable] = useState(false);
     const [apiProduct, setApiProduct] = useState();
-    const [category, setCategory] = useState('');
     const navigate = useNavigate();
-    let cat = '';
 
     function loadProduct() {
 
@@ -34,15 +32,6 @@ export default function Product() {
         promise.then((response) => {
 
             setApiProduct(response.data);
-
-            for (let i = 0; i < response.data[0].category.length; i++) {
-                if (i === response.data[0].category.length - 1) {
-                    cat += response.data[0].category[i].distância;
-                } else {
-                    cat += response.data[0].category[i].distância + ', ';
-                }
-            }
-            setCategory(cat);
 
             if (response.data[0].quantity === 0) {
                 setUnavailable(true);
@@ -62,7 +51,7 @@ export default function Product() {
         loadProduct
 
         // eslint-disable-next-line 
-    ,[]);
+        , []);
 
     function handleAddToCart() {
         if (auth && auth.token) {
@@ -116,7 +105,7 @@ export default function Product() {
                 <ProductContent>
 
                     <ProductImage>
-                        <img src='https://img.joomcdn.net/19aa34e749cab8a3c251114385d098c3ac86b8ba_original.jpeg' alt='product' />
+                        <img src={apiProduct[0].image} alt='product' />
                     </ProductImage>
 
                     <ProductData>
@@ -143,7 +132,7 @@ export default function Product() {
                         </DataHeader>
 
                         <ProductName>{apiProduct[0].name}</ProductName>
-                        <ProductCategory>Categoria: {category}</ProductCategory>
+                        <ProductCategory>Categoria: {apiProduct[0].category[0].type}</ProductCategory>
                         <ProductDescription>{apiProduct[0].description}</ProductDescription>
                         <div className="numbers">
                             <ProductQuantity>{!unavailable ? `Disponível: ${apiProduct[0].quantity}` : 'Aguarde nosso Chunnin retornar com novas unidades deste item.'}</ProductQuantity>

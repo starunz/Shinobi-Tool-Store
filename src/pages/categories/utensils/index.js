@@ -1,22 +1,25 @@
-import Header from "../../components/Header";
-import { ProductsTitle, Container } from '../Home/style';
-import Products from "../../components/Products";
+import Header from "../../../components/Header";
+import { Container, ProductsTitle } from "../../Home/style";
+import Products from "../../../components/Products";
 
 import { useEffect, useState } from "react";
 
-import * as api from '../../services/api';
+import * as api from '../../../services/api';
 import Swal from "sweetalert2";
 
-import pain from '../../assets/images/pain.png';
+import pain from '../../../assets/images/pain.png';
 
-
-export default function Categories() {
+export default function Utensils() {
     const [apiProducts, setApiProducts] = useState([]);
 
     useEffect(() => {
         api.getProducts().then((response) => {
-            setApiProducts(response.data);
-        }).catch(() => {
+            const tools = response.data.filter(function (tool) {
+                return tool.category[0].type === 'utensílio'
+            })
+
+            setApiProducts(tools);
+        }).catch(error => {
             Swal.fire({
                 imageUrl: `${pain}`,
                 imageHeight: 140,

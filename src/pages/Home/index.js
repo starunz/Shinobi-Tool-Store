@@ -34,7 +34,7 @@ export default function Home() {
                 <Content>
                     <ProductsTitle>Produtos: </ProductsTitle>
                     {apiProducts.map((product) => (
-                        <Products key={product._id} id={product._id} name={product.name} price={product.price} quantity={product.quantity} category={product.category}></Products>
+                        <Products key={product._id} id={product._id} image={product.image} name={product.name} price={product.price} quantity={product.quantity} category={product.category}></Products>
                     ))}
                 </Content>
 

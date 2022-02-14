@@ -15,13 +15,13 @@ export const SidebarData = [
 
     subNav: [
       {
-        title: 'curta distância',
-        path: '/categorias/curtadistancia',
+        title: 'utensílios',
+        path: '/categorias/utensils',
         //icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'longa distância',
-        path: '/categorias/longadistancia',
+        title: 'ferramentas',
+        path: '/categorias/tools',
         //icon: <IoIcons.IoIosPaper />
       },
 

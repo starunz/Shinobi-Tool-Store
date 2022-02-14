@@ -104,7 +104,7 @@ export default function Cart() {
         loadCart
 
         // eslint-disable-next-line 
-    , [lever])
+        , [lever])
 
     return (
         <>

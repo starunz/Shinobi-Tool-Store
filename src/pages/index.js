@@ -4,8 +4,8 @@ import Home from "./Home";
 import Support from "./support";
 import Team from "./team";
 import Categories from "./categories";
-import ShortDistance from "./categories/shortDistance/ShorDistance";
-import LongDistance from "./categories/longDistance";
+import Utensils from "./categories/utensils";
+import Tools from "./categories/tools";
 import Product from "./Product/product";
 import Checkout from "./checkout/Checkout";
 import Cart from "./cart/Cart";
@@ -19,8 +19,8 @@ export {
     Support,
     Team,
     Categories,
-    ShortDistance,
-    LongDistance,
+    Utensils,
+    Tools,
     Product,
     Checkout,
     Infos

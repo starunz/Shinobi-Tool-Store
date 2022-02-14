@@ -133,26 +133,26 @@ const Sidebar = () => {
               navigate('/cart');
           }
       })
-      
+
     } else {
 
       Swal.fire({
-          title: 'OOPS...',
-          text: "Você precisa estar logado para visualizar o carrinho.",
-          imageUrl: `${kakashi}`,
-          imageHeight: 140,
-          showCancelButton: true,
-          confirmButtonColor: '#1C1C1C',
-          cancelButtonColor: '#b8b8b8',
-          confirmButtonText: 'Logar',
-          cancelButtonText: 'Cancelar',
-          button: navigate('/login')
+        title: 'OOPS...',
+        text: "Você precisa estar logado para visualizar o carrinho.",
+        imageUrl: `${kakashi}`,
+        imageHeight: 140,
+        showCancelButton: true,
+        confirmButtonColor: '#1C1C1C',
+        cancelButtonColor: '#b8b8b8',
+        confirmButtonText: 'Logar',
+        cancelButtonText: 'Cancelar',
+        button: navigate('/login')
       })
-      .then((result) => {
-        if (result.isConfirmed) {
+        .then((result) => {
+          if (result.isConfirmed) {
             navigate('/login');
-        }
-    })
+          }
+        })
     }
   }
 
@@ -162,7 +162,7 @@ const Sidebar = () => {
       <IconContext.Provider value={{ color: '#fff' }}>
 
         <NavIcon to='#'>
-            <FaIcons.FaBars onClick={showSidebar} />
+          <FaIcons.FaBars onClick={showSidebar} />
         </NavIcon>
 
         <SidebarNav sidebar={sidebar}>
@@ -186,7 +186,7 @@ const Sidebar = () => {
               <p>Logout</p>
             </ContainerLogout>
         </SidebarNav>
-      
+
       </IconContext.Provider>
     </>
   );

@@ -1,7 +1,7 @@
 import { Product, Informations, ProductData, Button } from './style';
 import { useNavigate } from 'react-router-dom';
 
-export default function Products({ id, name, price, quantity, category }) {
+export default function Products({ id, image, name, price, quantity, category }) {
 
     const navigate = useNavigate();
 
@@ -9,7 +9,7 @@ export default function Products({ id, name, price, quantity, category }) {
         <>
             <Product onClick={() => navigate(`/product/${id}`)}>
                 <div className="image">
-                    <img src='https://img.joomcdn.net/19aa34e749cab8a3c251114385d098c3ac86b8ba_original.jpeg' alt='' />
+                    <img src={`${image}`} alt={name} />
                 </div>
                 <Informations>
                     <ProductData>
