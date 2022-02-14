@@ -8,6 +8,8 @@ const Liink = styled(Link)`
   font-family: 'Raleway', sans-serif;
 
   color: #ffffff;
+
+  margin-bottom: 15px;
 `;
 
 export default Liink;

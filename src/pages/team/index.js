@@ -1,8 +1,8 @@
 import Header from "../../components/Header";
 import { ProductsTitle, Container } from '../Home/style';
-//import { Product, Informations,ProductData } from "../../components/Products/style";
+
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+
 
 export default function Team() {
     return (
@@ -19,7 +19,7 @@ export default function Team() {
                     <Informations>
                         <ProductData>
                             <h2>Bruna Souza</h2>
-                            <p>Dev Full Stack</p>
+                            <p>Dev Full Stack <br /> Student</p>
                             <span>📂 Projetos: </span>
                             <a href="https://github.com/starunz" > github.com/starunz</a>
                         </ProductData>
@@ -34,7 +34,7 @@ export default function Team() {
                     <Informations>
                         <ProductData>
                             <h2>Luis Garbelotti</h2>
-                            <p>Dev Full Stack</p>
+                            <p>Dev Full Stack <br /> Student</p>
             
                             <span >📂 Projetos:</span>
                             <a href="https://github.com/luis-garbelotti" > github.com/luis-garbelotti</a>
@@ -115,6 +115,8 @@ const ProductData = styled.div`
 
         font-style: italic;
         margin-top: 5px;
+
+        text-align: center;
     }
 
     span {
