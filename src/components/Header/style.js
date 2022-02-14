@@ -7,7 +7,7 @@ const Container = styled.div`
     
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     
     position: fixed;
     top: 0;
@@ -24,6 +24,8 @@ const ShinobiStore = styled.div`
     //font-weight: 400;
 
     color: #ffffff;
+
+    margin-right: 8%
 `
 
 export {
